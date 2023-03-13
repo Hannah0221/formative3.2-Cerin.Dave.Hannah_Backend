@@ -1,0 +1,36 @@
+/npm init
+//npm install express
+//touch index.js
+//http://localhost:3000/(chrome)
+//node index.js
+//npm install nodemon --save-dev
+//npx nodemon index.js
+//control c (stop server)
+
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+API for nutrition from api-ninjas.com
+
+https://api-ninjas.com/api/nutrition
+CO+j+UBaTgi9jS2tREkimQ==EQ6T5Tf3ZLlnMGSM
+
+
+const request = require('request');
+var query = '1lb brisket and fries';
+request.get({
+  url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
+  headers: {
+    'X-Api-Key': 'YOUR_API_KEY'
+  },
+}, function(error, response, body) {
+  if(error) return console.error('Request failed:', error);
+  else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
+  else console.log(body)
+});
+
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+.env
+DB_URL="mongodb+srv://master-83:Kwaq8aDV6NSsZHfX@cluster83.o5t6y3n.mongodb.net/grocery?retryWrites=true&w=majority"
